@@ -22,6 +22,7 @@ export class HomePage {
   async navigateToRegistrationForm() {
     await this.demoSitesMenu.hover();
     await this.practiceAutomationMenu.hover();
+    await this.registrationFormLink.waitFor({ state: 'visible' });
     await this.registrationFormLink.click();
 
 
