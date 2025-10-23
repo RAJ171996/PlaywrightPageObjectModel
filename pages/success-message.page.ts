@@ -14,7 +14,7 @@ export class SuccessMessagePage {
   async validateSuccessMessage(expected: string) {
 
     // Wait for the message to be visible
-    await expect(this.successMessageLocator).toBeVisible({ timeout: 10000 });
+    await this.successMessageLocator.waitFor({ state: 'visible'});
     // Retrieve text content
     const actualMessage = await this.successMessageLocator.textContent();
     console.log(actualMessage);

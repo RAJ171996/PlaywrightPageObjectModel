@@ -20,9 +20,11 @@ export class HomePage {
     await this.demoSitesMenu.hover();
 
     await this.practiceAutomationMenu.waitFor({ state: 'visible' });
-    await this.practiceAutomationMenu.hover();
+    await this.practiceAutomationMenu.hover({ force: true });
 
     await this.registrationFormLink.waitFor({ state: 'visible' });
-    await this.registrationFormLink.click({ timeout: 10000 }); // CI safety
+    await this.registrationFormLink.click({ force: true});
+
+
   }
 }

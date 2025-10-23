@@ -1,4 +1,4 @@
-import { Page, Locator } from '@playwright/test';
+import { Page, Locator, expect } from '@playwright/test';
 
 export class RegistrationFormPage {
   
@@ -44,6 +44,11 @@ export class RegistrationFormPage {
     this.enterYourQueryTextArea = page.locator('#vfb-23');
     this.exampleInput = page.locator('#vfb-3');
     this.submitButton = page.locator('#vfb-4');
+  }
+
+  async verifyOnRegistrationFormPage() {
+    await expect(this.page).toHaveURL('https://vinothqaacademy.com/demo-site/', { timeout: 60000 });
+    await expect(this.firstNameInput).toBeVisible({ timeout: 60000 });
   }
 
   async enterFirstName(name: string) {
@@ -118,7 +123,7 @@ export class RegistrationFormPage {
   }
 
   async submitForm() {
-    await this.submitButton.click();  
+    await this.submitButton.click(); 
   }
 
 

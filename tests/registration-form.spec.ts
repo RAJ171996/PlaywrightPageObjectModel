@@ -1,5 +1,5 @@
 import { test } from '@playwright/test';
-import { HomePage } from '../pages/home.page';
+import { HomePage } from '../pages/home-page';
 import { RegistrationFormPage } from '../pages/registration-form.page';
 import { SuccessMessagePage } from '../pages/success-message.page';
 
@@ -10,6 +10,7 @@ test('User can submit the registration form successfully', async ({ page }) => {
 
   await homePage.navigateToHome();
   await homePage.navigateToRegistrationForm();
+  await registrationForm.verifyOnRegistrationFormPage();
     await registrationForm.enterFirstName('Raj');
     await registrationForm.enterLastName('Kumar');
     await registrationForm.selectGenderMale();
